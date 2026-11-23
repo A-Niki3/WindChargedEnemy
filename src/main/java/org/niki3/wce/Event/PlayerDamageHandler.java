@@ -6,11 +6,14 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import org.niki3.wce.Config.CommonConfig;
 import org.niki3.wce.Effect.WindBurstEffect;
 
 public class PlayerDamageHandler {
     @SubscribeEvent
     public void onLivingDamage(LivingDamageEvent.Post event){
+        // Modの有効化確認(config/wce/common.tomlより)
+        if(!CommonConfig.ENABLED.get())return;
         // 被攻撃対象がPlayer以外は無視する
         if(!(event.getEntity() instanceof Player player)) return;
         // サーバー側のみの処理
