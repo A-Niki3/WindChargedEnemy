@@ -1,13 +1,6 @@
 {
-  "itemGroup.wce": "Example Mod Tab",
-  "block.wce.example_block": "Example Block",
-  "item.wce.example_item": "Example Item",
-
-  "wce.configuration.title": "WindChargedEnemy Configs",
-  "wce.configuration.section.wce.common.toml": "WindChargedEnemy Configs",
-  "wce.configuration.section.wce.common.toml.title": "WindChargedEnemy Configs",
-  "wce.configuration.items": "Item List",
-  "wce.configuration.logDirtBlock": "Log Dirt Block",
-  "wce.configuration.magicNumberIntroduction": "Magic Number Text",
-  "wce.configuration.magicNumber": "Magic Number"
+  "wce.configuration.enabled": "Enable WindChargedEnemy",
+  "wce.configuration.enabled.tooltip": "Default：[Enable]",
+  "wce.configuration.easter": "Enable EasterMode",
+  "wce.configuration.easter.tooltip": "Default：[Disable]"
 }
