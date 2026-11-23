@@ -1,5 +1,6 @@
 package org.niki3.wce;
 
+import org.niki3.wce.Config.CommonConfig;
 import org.niki3.wce.Event.PlayerDamageHandler;
 import org.slf4j.Logger;
 
@@ -24,7 +25,7 @@ public class WindChargedEnemy {
         modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
         NeoForge.EVENT_BUS.register(new PlayerDamageHandler());
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        modContainer.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC, MODID + "/common.toml");
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
