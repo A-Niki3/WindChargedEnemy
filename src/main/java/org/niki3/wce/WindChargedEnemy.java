@@ -1,5 +1,6 @@
 package org.niki3.wce;
 
+import net.neoforged.fml.loading.FMLPaths;
 import org.niki3.wce.Config.CommonConfig;
 import org.niki3.wce.Event.PlayerDamageHandler;
 import org.slf4j.Logger;
@@ -15,6 +16,10 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 
 @Mod(WindChargedEnemy.MODID)
 public class WindChargedEnemy {
@@ -26,8 +31,21 @@ public class WindChargedEnemy {
         NeoForge.EVENT_BUS.register(this);
         NeoForge.EVENT_BUS.register(new PlayerDamageHandler());
         modContainer.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC, MODID + "/common.toml");
+        createEntityConfigDirectory();
     }
 
+    private void createEntityConfigDirectory(){
+        Path path = FMLPaths.CONFIGDIR.get()
+                .resolve(MODID)
+                .resolve("entities");
+
+        try{
+            Files.createDirectories(path);
+            LOGGER.info("{}: Entity config directory initialized.", MODID);
+        }catch (IOException e){
+            LOGGER.error("{}: Failed to create entity config directory.", MODID, e);
+        }
+    }
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.info("WCE Complete");
     }
