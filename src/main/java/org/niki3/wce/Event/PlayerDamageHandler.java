@@ -1,12 +1,13 @@
 package org.niki3.wce.Event;
 
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import org.niki3.wce.Config.CommonConfig;
+import org.niki3.wce.Config.EntityConfig;
+import org.niki3.wce.Config.EntityConfigManager;
 import org.niki3.wce.Effect.WindBurstEffect;
 
 public class PlayerDamageHandler {
@@ -19,12 +20,15 @@ public class PlayerDamageHandler {
         // サーバー側のみの処理
         if(!(player.level() instanceof ServerLevel serverLevel)) return;
 
-        DamageSource source = event.getSource();
-        Entity attacker = source.getEntity();
+        Entity attacker = event.getSource().getEntity();
 
         if(attacker == null || attacker instanceof Player) return;
 
-        if(player.getRandom().nextFloat() >= 0.5F) return;
+        EntityConfig config = EntityConfigManager.getConfig(attacker);
+        // 個別設定の有効判定
+        if(!config.isEnabled()) return;
+        // 個別設定/デフォルト設定の確率で判定
+        if(player.getRandom().nextInt(100) >= config.getChance()) return;
 
         WindBurstEffect.spawn(player, serverLevel);
     }
