@@ -16,7 +16,7 @@ public class WindBurstEffect {
         Random random = new Random();
 
         double x = player.getX() + (random.nextDouble() * 2 -1) * OFFSET_RANGE;
-        double y = player.getY() + (random.nextDouble() * 2 -1) * OFFSET_RANGE;
+        double y = player.getY() + 0.5 + (random.nextDouble() * 2 -1) * OFFSET_RANGE;
         double z = player.getZ() + (random.nextDouble() * 2 -1) * OFFSET_RANGE;
 
         InstantWindCharge charge = new InstantWindCharge(player, level, x, y, z);
