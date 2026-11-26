@@ -2,5 +2,7 @@
   "wce.configuration.enabled": "WindChargedEnemyの有効化",
   "wce.configuration.enabled.tooltip": "デフォルト設定：[オン]",
   "wce.configuration.easter": "イースターモードの有効化",
-  "wce.configuration.easter.tooltip": "デフォルト設定：[オフ]"
+  "wce.configuration.easter.tooltip": "デフォルト設定：[オフ]",
+  "wce.configuration.default_chance": "デフォルト発生確率",
+  "wce.configuration.default_chance.tooltip": "デフォルト設定: [50]"
 }

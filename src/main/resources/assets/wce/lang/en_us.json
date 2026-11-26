@@ -2,5 +2,7 @@
   "wce.configuration.enabled": "Enable WindChargedEnemy",
   "wce.configuration.enabled.tooltip": "Default：[Enable]",
   "wce.configuration.easter": "Enable EasterMode",
-  "wce.configuration.easter.tooltip": "Default：[Disable]"
+  "wce.configuration.easter.tooltip": "Default：[Disable]",
+  "wce.configuration.default_chance": "Default Chance",
+  "wce.configuration.default_chance.tooltip": "Default: [50]"
 }

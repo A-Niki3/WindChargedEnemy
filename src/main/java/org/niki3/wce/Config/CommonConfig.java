@@ -11,6 +11,12 @@ public class CommonConfig {
                     .translation("wce.configuration.enabled")
                     .define("enabled", true);
 
+    public static final ModConfigSpec.IntValue DEFAULT_CHANCE =
+            BUILDER
+                    .comment("発生確率のデフォルト値設定")
+                    .translation("wce.configuration.default_chance")
+                    .defineInRange("defaultChance", 50, 0,100);
+
     public static final ModConfigSpec.BooleanValue EASTER =
             BUILDER
                     .comment("イースターモードを有効化します")
