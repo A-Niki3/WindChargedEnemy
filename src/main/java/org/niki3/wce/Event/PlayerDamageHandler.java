@@ -26,9 +26,9 @@ public class PlayerDamageHandler {
 
         EntityConfig config = EntityConfigManager.getConfig(attacker);
         // 個別設定の有効判定
-        if(!config.isEnabled()) return;
+        if(!config.enabled()) return;
         // 個別設定/デフォルト設定の確率で判定
-        if(player.getRandom().nextInt(100) >= config.getChance()) return;
+        if(player.getRandom().nextInt(100) >= config.chance()) return;
 
         WindBurstEffect.spawn(player, serverLevel);
     }
