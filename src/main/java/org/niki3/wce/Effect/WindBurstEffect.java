@@ -10,14 +10,15 @@ import java.util.Random;
 
 public class WindBurstEffect {
 
-    private static final double OFFSET_RANGE = 0.25D;
+    private static final double Y_OFFSET_RANGE = 0.25D;
+    private static final double XZ_OFFSET_RANGE = 1.0D;
 
     public static void spawn(Player player, ServerLevel level){
         Random random = new Random();
 
-        double x = player.getX() + (random.nextDouble() * 2 -1) * OFFSET_RANGE;
-        double y = player.getY() + 0.5 + (random.nextDouble() * 2 -1) * OFFSET_RANGE;
-        double z = player.getZ() + (random.nextDouble() * 2 -1) * OFFSET_RANGE;
+        double x = player.getX() + (random.nextDouble() * 2 -1) * XZ_OFFSET_RANGE;
+        double y = player.getY() + 0.5 + (random.nextDouble() * 2 -1) * Y_OFFSET_RANGE;
+        double z = player.getZ() + (random.nextDouble() * 2 -1) * XZ_OFFSET_RANGE;
 
         InstantWindCharge charge = new InstantWindCharge(player, level, x, y, z);
         charge.detonate();
