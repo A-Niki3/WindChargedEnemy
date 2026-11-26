@@ -54,7 +54,7 @@ public class EntityConfigManager {
 
             int chance = json.has("chance")
                     ? json.get("chance").getAsInt()
-                    : EntityConfig.DEFAULT_CHANCE;
+                    : EntityConfig.getDefaultChance();
             // 確率を0~100に制限
             chance = Math.max(0, Math.min(100, chance));
 
@@ -77,8 +77,8 @@ public class EntityConfigManager {
             Files.createDirectories(configPath.getParent());
 
             JsonObject json = new JsonObject();
-            json.addProperty("enabled", config.isEnabled());
-            json.addProperty("chance", config.getChance());
+            json.addProperty("enabled", config.enabled());
+            json.addProperty("chance", config.chance());
             try(var writer = Files.newBufferedWriter(configPath)){
                 GSON.toJson(json, writer);
             }
