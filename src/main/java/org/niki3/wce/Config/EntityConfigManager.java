@@ -23,6 +23,10 @@ public class EntityConfigManager {
             .resolve("entities");
 
     public static EntityConfig getConfig(Entity entity){
+        // wce以上のディレクトリが存在しない場合デフォルトを返す
+        if (!Files.isDirectory(CONFIG_PATH.getParent())){
+            return EntityConfig.getDefault();
+        }
         // ResourceLocation -> Identifier
         Identifier entityId = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
 
