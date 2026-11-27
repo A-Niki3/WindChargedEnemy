@@ -27,10 +27,10 @@ displayName="${mod_name}" #mandatory
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
 
 # A URL for the "homepage" for this mod, displayed in the mod UI
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
+displayURL="https://github.com/A-Niki3/WindChargedEnemy/releases"
 
 # A file name (in the root of the mod JAR) containing a logo for display
-#logoFile="examplemod.png" #optional
+iconFile="assets/wce/Icon/icon.png"
 
 # A text field displayed in the mod UI
 #credits="" #optional
@@ -41,7 +41,8 @@ authors="A_Niki3"
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 This mod adds the “Wind Charge” effect to enemy attacks.
-Compatibility with other mods has not been verified, so please use it at your own risk.
+This applies to any entity that attacks the player.
+I believe I've also made it compatible with entities other than Vanilla.
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
